@@ -47,6 +47,7 @@ router.get('/test', (req, res) => {
 
 router.post("/ask", async (req, res) => {
   const prompt = req.body.messages[0].content;
+  console.log("prompt: "+prompt);
 
   if (!prompt) {
     res.status(400).send("Error: Missing 'prompt' in request body.");
