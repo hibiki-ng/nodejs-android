@@ -1,4 +1,6 @@
 var prompt = '';
+var techno = '';
+var code = '';
 
 function showLoader() {
     $('#loader').show();
@@ -9,10 +11,14 @@ function hideLoader() {
 }
 
 function getPrompt() {
+
     prompt = $('#input')[0].value;
     let requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({
             model: 'gpt-3.5-turbo',
             messages: [
@@ -22,6 +28,7 @@ function getPrompt() {
               },
             ],
           }),
+          mode: 'cors',
         rejectUnauthorized: false
       };
     console.log(prompt);
@@ -29,15 +36,20 @@ function getPrompt() {
     
     showLoader();
 
-    fetch('http://127.0.0.1:3000/ask', requestOptions)
-    .then(response => response.json())
-    .then(data => {
+    fetch('https://hibiki-gpt.vercel.app/ask', requestOptions)
+      .then(response => {
+        console.log(response);
+        return response.json();
+      })    
+      .then(data => {
             hideLoader();
-            const substringToReplace = "\n";
+            const substringToReplace = "\n\n";
             const replacement = "<br>";
 
             const regex = new RegExp(substringToReplace, 'gi');
-            const resultString = data.response.replace(regex, replacement);
+            var resultString = data.response.replace(regex, replacement);
+            resultString = resultString.replace('```', '<code>');
+            resultString = resultString.replace('```', '</code>');
             console.log(resultString);
             $('#main')[0].innerHTML = resultString;
         })
