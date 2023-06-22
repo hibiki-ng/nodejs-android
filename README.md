@@ -1,23 +1,15 @@
-# nodejs-posgresql
+# NodeJS Android Books
 
-A demo Quotes REST API using Node.js and PostgreSQL. Built with Express Js for this [Node.js PostgreSQL tutorial](https://geshan.com.np/blog/2021/01/nodejs-postgresql-tutorial/).
+## Projet pour le cours de iOS Android. Projet en NodeJS
 
-## Deploy with Heroku
+### Etapes d'installation
+Prérequis: NodeJS, npm
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/geshan/nodejs-posgresql/tree/master)
+1. Cloner le projet
+2. Ouvrir le dossier dans un terminal
+3. Exécuter "npm install"
+4. Lancer le serveur local avec "node app.js"
 
-## Deploy with Vercel
+Le serveur est maintenant accessible en faisant une requête GET à [http://127.0.0.1:3000/books](http://127.0.0.1:3000/books)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fgeshan%2Fnodejs-posgresql)
-
-## Deploy to [Cyclic](https://app.cyclic.sh/#/join/geshan)
-
-[![Deploy to Cyclic](https://deploy.cyclic.app/button.svg)](https://deploy.cyclic.app/)
-
-## Deploy to [Render](https://render.com?utm_source=geshan.com.np)
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
-### Running on Vercel
-
-At: [https://nodejs-postgresql.vercel.app/quotes](https://nodejs-postgresql.vercel.app/quotes)
+Solution sans cloner: le serveur est accessible en ligne via Vercel à l'adresse [https://nodejs-android.vercel.app/books](https://nodejs-android.vercel.app/books)
