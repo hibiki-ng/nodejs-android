@@ -1,6 +1,6 @@
 {
-  "name": "HibikiGPT",
-  "description": "GPT3.5 integration test",
-  "repository": "https://github.com/hibiki-ng/hibiki-gpt",
+  "name": "nodejs-android",
+  "description": "nodejs api for android test",
+  "repository": "https://github.com/hibiki-ng/nodejs-android.git",
   "keywords": ["node", "express", "postgresql"]
 }

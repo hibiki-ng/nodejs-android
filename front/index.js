@@ -36,25 +36,31 @@ function getPrompt() {
     
     showLoader();
 
-    fetch('https://hibiki-gpt.vercel.app/ask', requestOptions)
+    fetch('http://127.0.0.1:3000/ask', requestOptions)
       .then(response => {
         console.log(response);
         return response.json();
       })    
       .then(data => {
             hideLoader();
-            const substringToReplace = "\n\n";
-            const replacement = "<br>";
+            if (data.response.includes('<')) {
+              $('#main')[0].innerText = resultString;
+            } else {
+              const substringToReplace = "\n\n";
+              const replacement = "<br>";
 
-            const regex = new RegExp(substringToReplace, 'gi');
-            var resultString = data.response.replace(regex, replacement);
-            resultString = resultString.replace('```', '<code>');
-            resultString = resultString.replace('```', '</code>');
-            console.log(resultString);
-            $('#main')[0].innerHTML = resultString;
+              const regex = new RegExp(substringToReplace, 'gi');
+              var resultString = data.response.replace(regex, replacement);
+              //resultString = resultString.replace('```', '<code>');
+              //resultString = resultString.replace('```', '</code>');
+              console.log(resultString);
+              
+              $('#main')[0].innerHTML = resultString;
+            }
         })
     .catch((error) => {
         console.error(error);
         hideLoader();
+        getPrompt();
     });
 }
